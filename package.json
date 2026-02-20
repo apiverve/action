@@ -1,0 +1,41 @@
+{
+  "name": "apiverve-action",
+  "version": "0.1.0-beta",
+  "description": "Access 350+ production-ready APIs in your GitHub workflows - QR codes, screenshots, DNS, email validation, and more",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build index.js -o dist",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "github-action",
+    "apiverve",
+    "api",
+    "qrcode",
+    "screenshot",
+    "dns",
+    "domain",
+    "ssl",
+    "email-validation",
+    "ip-lookup",
+    "pdf",
+    "automation",
+    "ci-cd"
+  ],
+  "author": "APIVerve <support@apiverve.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apiverve/action.git"
+  },
+  "bugs": {
+    "url": "https://github.com/apiverve/action/issues"
+  },
+  "homepage": "https://apiverve.com/marketplace?utm_source=npm&utm_medium=action&utm_campaign=package",
+  "dependencies": {
+    "@actions/core": "^1.10.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.1"
+  }
+}
