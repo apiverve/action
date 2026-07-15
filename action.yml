@@ -2,7 +2,7 @@ name: 'APIVerve'
 description: 'Access 350+ production-ready APIs in your GitHub workflows - QR codes, screenshots, DNS, weather, IP lookup, and more'
 author: 'APIVerve'
 branding:
-  icon: 'cloud'
+  icon: 'zap'
   color: 'blue'
 
 inputs:
