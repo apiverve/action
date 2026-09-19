@@ -1,6 +1,6 @@
 {
   "name": "apiverve-action",
-  "version": "0.1.0-beta",
+  "version": "1.0.0",
   "description": "Access 350+ production-ready APIs in your GitHub workflows - QR codes, screenshots, DNS, email validation, and more",
   "main": "dist/index.js",
   "scripts": {

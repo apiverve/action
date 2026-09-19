@@ -2,8 +2,6 @@
 
 > Access 350+ production-ready REST APIs directly in your GitHub workflows.
 
-> **Beta Release** - This action is in beta. We'd love your feedback! [Open an issue](https://github.com/apiverve/action/issues) if you encounter any problems.
-
 [![GitHub Marketplace](https://img.shields.io/badge/Marketplace-APIVerve-blue?logo=github)](https://github.com/marketplace/actions/apiverve)
 [![APIs](https://img.shields.io/badge/APIs-350+-blue.svg)](https://apiverve.com/marketplace?utm_source=github&utm_medium=action&utm_campaign=readme)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -100,6 +98,31 @@ jobs:
           api: sslchecker
           params: '{"domain": "example.com"}'
 ```
+
+---
+
+## Pass/fail checks
+
+Set `check` to evaluate the result and fail the job when something is wrong, instead of just returning data.
+
+| Check | Fails when | Extra inputs |
+|-------|------------|--------------|
+| `ssl-expiry` | Certificate is expired, invalid, or within `fail_days` of expiry (default 7; warns at `warn_days`, default 30) | `warn_days`, `fail_days`, `fail_on_self_signed` |
+| `domain-expiry` | Registration is expired or within `fail_days` (default 14; warns at `warn_days`, default 60) | `warn_days`, `fail_days` |
+| `dns-record` | No record of `record_type` exists, or none contains `expected_value` | `record_type`, `expected_value` |
+| `email-auth` | SPF or DMARC is missing or invalid, DKIM fails for `dkim_selector`, or DMARC is not enforced when required | `dkim_selector`, `require_dmarc_enforced` |
+
+```yaml
+- name: Fail before the certificate expires
+  uses: apiverve/action@v1
+  with:
+    api_key: $
+    check: ssl-expiry
+    domain: example.com
+    fail_days: 14
+```
+
+Checks set `days_remaining` or `records` as outputs.
 
 ---
 
